@@ -3,14 +3,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal" >
+
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -23,11 +26,15 @@
                 android:id="@+id/RNews"
                 android:text="News"
                 android:onClick="changeliebPage" />
+
         </RadioGroup>
+
     </LinearLayout>
+
     <WebView
         android:layout_width="match_parent"
         android:layout_height="700dp"
         android:id="@+id/webview1"
     />
+
 </LinearLayout>
