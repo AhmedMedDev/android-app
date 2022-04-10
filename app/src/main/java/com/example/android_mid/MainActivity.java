@@ -2,11 +2,19 @@ package com.example.android_mid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,4 +54,22 @@ public class MainActivity extends AppCompatActivity {
         if (webView1.canGoBack()) webView1.goBack();
         else super.onBackPressed();
     }
+
+    private class checkWebPage extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids){
+            try {
+                Document doc = Jsoup.connect("https://science.asu.edu.eg/ar/events").get();
+                String st = doc.title();
+                Elements elems = doc.getElementsByClass("event-date");
+                Element elem = elems.first();
+                String stEvent = elem.text();
+//                txv1. setText(stEvent);
+            } catch (IOException e){
+
+            }
+            return null;
+        }
+    }
+
 }
