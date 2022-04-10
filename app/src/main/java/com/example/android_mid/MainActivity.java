@@ -29,15 +29,6 @@ public class MainActivity extends AppCompatActivity {
         webSetting.setDomStorageEnabled(true);
         webSetting.setLoadsImagesAutomatically(true);
         webSetting.setAppCacheEnabled(true);
-
-//        webSetting.setMixedContentMode (WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-//
-//        checkWebPage cwp= new checkwebPage();
-//        cwp.execute();
-//        txv1 = (TextView) findViewById (R.id.txv1);
-//        else if(view.getId()==R.id.RSugg) {
-//            webView1.loadUrl("https://forms.office.com/r/HfejjtfynN");
-//        }
     }
 
     public void changeWebPage(View view) {
@@ -45,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
             webView1.loadUrl("https://science.asu.edu.eg/ar/events");
         } else if (view.getId() == R.id.RNews) {
             webView1.loadUrl("https://science.asu.edu.cg/ar/news");
+        } else if(view.getId()==R.id.RSugg) {
+            webView1.loadUrl("https://forms.office.com/r/HfejjtfynN");
         }
     }
 

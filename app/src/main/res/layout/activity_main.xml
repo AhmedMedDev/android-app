@@ -27,6 +27,13 @@
                 android:text="News"
                 android:onClick="changeliebPage" />
 
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RSugg"
+                android:text="Sugg./Compl"
+                android:onClick="changeWebPage" />
+
         </RadioGroup>
 
     </LinearLayout>
