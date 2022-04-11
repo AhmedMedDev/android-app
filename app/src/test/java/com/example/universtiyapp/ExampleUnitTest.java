@@ -1,4 +1,4 @@
-package com.example.android_mid;
+package com.example.universtiyapp;
 
 import org.junit.Test;
 
