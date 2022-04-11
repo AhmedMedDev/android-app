@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Looper;
-import android.util.Log;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -17,7 +14,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
-import java.text.BreakIterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,6 +23,8 @@ public class news extends AppCompatActivity {
     WebSettings ws;
     TextView txv1;
     String lastEvDate;
+//    Button news ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +40,8 @@ public class news extends AppCompatActivity {
 
         checkWebPage checkWebPage = new checkWebPage();
         checkWebPage.execute();
+
+//        news.findViewById(R.id.news);
     }
     @Override
     public void onBackPressed() {
@@ -62,7 +62,7 @@ public class news extends AppCompatActivity {
 
                         if (!lastEvDate.equals(getLastDate())) {
                             // Turn On Notification Alert
-
+//                            news.setText("Alert");
                         }
                     }
                 },0,5000);
