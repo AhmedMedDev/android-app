@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.os.AsyncTask;
 import android.widget.Button;
@@ -91,14 +92,16 @@ public class menu extends AppCompatActivity {
                 @Override
                 public void run(){
 
+                    Log.i("Check", "Check cond");
                     if (!lastEvDate.equals(getLastDate())) {
                         // Turn On Notification Alert
                         lastEvDate = getLastDate();
 
+                        Log.i("Done", "Cond is ture");
                         newsAlert.setText("Alert");
                     }
                 }
-            },0,100);
+            },0,500);
 
             return null;
         }
