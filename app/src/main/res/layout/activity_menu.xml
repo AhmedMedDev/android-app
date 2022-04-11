@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A089D6"
+    tools:context=".menu">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="384dp"
+        android:layout_height="591dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571">
+
+        <Button
+            android:id="@+id/news"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:onClick="click"
+            android:text="الاخبار"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/eve"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:onClick="click"
+            android:text="الاحداث"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/adv"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:onClick="click"
+            android:text="اعلانات"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/privatee"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:onClick="click"
+            android:text="لافتات للطلاب"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/gpa"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:onClick="click"
+            android:text="حساب gpa"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/fb"
+            android:layout_width="397dp"
+            android:layout_height="80dp"
+            android:onClick="click"
+            android:text="Facebook"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/problems"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:onClick="click"
+            android:text="شكوى و الاقتراحات"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

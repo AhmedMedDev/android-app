@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android_mid">
+    package="com.example.universtiyapp">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidMid">
+        android:theme="@style/Theme.UniverstiyApp">
+        <activity
+            android:name=".facebook"
+            android:exported="false" />
+        <activity
+            android:name=".gpaa"
+            android:exported="false" />
+        <activity
+            android:name=".problem"
+            android:exported="false" />
+        <activity
+            android:name=".privteads"
+            android:exported="false" />
+        <activity
+            android:name=".advertisment"
+            android:exported="false" />
+        <activity
+            android:name=".event"
+            android:exported="false" />
+        <activity
+            android:name=".news"
+            android:exported="false" />
+        <activity
+            android:name=".menu"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

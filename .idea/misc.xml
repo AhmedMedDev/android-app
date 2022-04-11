@@ -3,7 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Uni/android/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Uni/universtiyapp/app/src/main/res/layout/activity_event.xml" value="0.358695652173913" />
+        <entry key="..\:/Uni/universtiyapp/app/src/main/res/layout/activity_menu.xml" value="0.358695652173913" />
+        <entry key="..\:/Uni/universtiyapp/app/src/main/res/layout/activity_news.xml" value="0.358695652173913" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_advertisment.xml" value="0.21784420289855072" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_event.xml" value="0.21784420289855072" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_facebook.xml" value="0.21784420289855072" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_facebookk.xml" value="0.21784420289855072" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_gpaa.xml" value="0.259375" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_main.xml" value="0.21784420289855072" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_menu.xml" value="0.264" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_news.xml" value="0.264" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_privteads.xml" value="0.21784420289855072" />
+        <entry key="..\:/talta/2/universtiyapp/app/src/main/res/layout/activity_problem.xml" value="0.21784420289855072" />
       </map>
     </option>
   </component>
