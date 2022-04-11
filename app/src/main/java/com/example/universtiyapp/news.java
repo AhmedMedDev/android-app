@@ -26,6 +26,7 @@ public class news extends AppCompatActivity {
     WebView webnews;
     WebSettings ws;
     TextView txv1;
+    String lastEvDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +40,8 @@ public class news extends AppCompatActivity {
         Intent w=getIntent();
         webnews.loadUrl(w.getExtras().getString("url"));
 
-        txv1 = findViewById(R.id.txv1);
-
         checkWebPage checkWebPage = new checkWebPage();
         checkWebPage.execute();
-//        txv1. setText("aaaaaa");
-
     }
     @Override
     public void onBackPressed() {
@@ -56,20 +53,15 @@ public class news extends AppCompatActivity {
     private class checkWebPage extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids){
+
+                lastEvDate = getLastDate();
+
                 new Timer().scheduleAtFixedRate(new TimerTask(){
                     @Override
                     public void run(){
-                        try {
 
-                            Document doc = Jsoup.connect("https://science.asu.edu.eg/ar/events").get();
-                            Elements elems = doc.getElementsByClass("event-date");
-                            Element elem = elems.first();
-                            String stEvent = elem.text();
-                            String oldEvent = elem.text();
-                            txv1. setText(stEvent);
-                            if (stEvent.equals(oldEvent)) txv1. setText("New Enent");
-
-                        } catch (IOException e){
+                        if (!lastEvDate.equals(getLastDate())) {
+                            // Turn On Notification Alert
 
                         }
                     }
@@ -79,4 +71,18 @@ public class news extends AppCompatActivity {
         }
     }
 
+    public static String getLastDate () {
+        try {
+            Document doc = Jsoup.connect("https://science.asu.edu.eg/ar/events").get();
+
+            Elements elems = doc.getElementsByClass("event-date");
+
+            Element elem = elems.first();
+
+            return elem.text();
+
+        } catch (IOException e){
+            return e.getMessage();
+        }
+    }
 }
