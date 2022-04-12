@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A089D6"
+    android:background="@drawable/layer_2"
     tools:context=".menu">
 
     <LinearLayout
@@ -20,64 +20,88 @@
         app:layout_constraintVertical_bias="0.571">
 
         <TextView
+            android:id="@+id/newsAlert"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/newsAlert" />
+            android:layout_height="50dp" />
+
+
         <Button
             android:id="@+id/news"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="@drawable/box1"
             android:onClick="click"
-            android:text="الاخبار"
-            android:textSize="24sp" />
+            android:text="News"
+            android:textColor="#131313"
+            android:textSize="22dp"
+            app:iconTint="#1B1818" />
 
         <Button
             android:id="@+id/eve"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="@drawable/box2"
             android:onClick="click"
-            android:text="الاحداث"
-            android:textSize="24sp" />
+            android:text="Events"
+            android:textColor="#131313"
+            android:textSize="22dp" />
 
         <Button
             android:id="@+id/adv"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="@drawable/box3"
+
             android:onClick="click"
-            android:text="اعلانات"
-            android:textSize="24sp" />
+            android:text="Advertisment"
+            android:textColor="#070707"
+            android:textSize="22dp" />
 
         <Button
             android:id="@+id/privatee"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="@drawable/box4"
             android:onClick="click"
-            android:text="لافتات للطلاب"
-            android:textSize="24sp" />
+
+            android:text="Student Banner"
+            android:textColor="#090909"
+            android:textSize="22dp" />
 
         <Button
             android:id="@+id/gpa"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:width="2dp"
+            android:background="@drawable/box2"
+
             android:onClick="click"
-            android:text="حساب gpa"
-            android:textSize="24sp" />
+            android:text="GPA Calculation"
+            android:textColor="#070707"
+            android:textSize="22dp" />
 
         <Button
             android:id="@+id/fb"
             android:layout_width="397dp"
             android:layout_height="80dp"
+            android:background="@drawable/box3"
             android:onClick="click"
+
             android:text="Facebook"
-            android:textSize="24sp" />
+            android:textColor="#040303"
+            android:textSize="22dp" />
 
         <Button
             android:id="@+id/problems"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="@drawable/box1"
             android:onClick="click"
-            android:text="شكوى و الاقتراحات"
-            android:textSize="24sp" />
+
+            android:text="complaint"
+            android:textColor="#0B0A0A"
+            android:textSize="22dp"
+            android:transformPivotX="@dimen/cardview_default_radius" />
 
     </LinearLayout>
 

@@ -8,9 +8,8 @@
 
     <WebView
         android:id="@+id/webgpa"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="405dp"
+        android:layout_height="761dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp" />
+        tools:layout_editor_absoluteX="3dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
