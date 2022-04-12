@@ -1,7 +1,11 @@
 package com.example.universtiyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -33,54 +37,57 @@ public class menu extends AppCompatActivity {
         checkWebPage.execute();
 
 
-        newsAlert = findViewById(R.id.newsAlert);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("event notification", "event channel", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
     }
 
     public void click(View v) {
         if (v.getId() == R.id.news) {
-            newsAlert.setText("");
             Intent n = new Intent(this, news.class);
             n.putExtra("url", "https://science.asu.edu.eg/ar/news");
             startActivity(n);
 
         }
-        if (v.getId() == R.id.eve) {
-            Intent n = new Intent(this, event.class);
-            n.putExtra("url", "https://science.asu.edu.eg/ar/events");
-            startActivity(n);
-
-        }
-        if (v.getId() == R.id.adv) {
-            Intent n = new Intent(this, advertisment.class);
-            n.putExtra("url", "https://science.asu.edu.eg/ar/announcements");
-            startActivity(n);
-
-        }
-        if (v.getId() == R.id.privatee) {
-            Intent n = new Intent(this, privteads.class);
-            n.putExtra("url", "https://science.asu.edu.eg/ar/announcements");
-            startActivity(n);
-
-        }
-        if (v.getId() == R.id.problems) {
-            Intent n = new Intent(this, problem.class);
-            n.putExtra("url",
-                    "https://forms.office.com/pages/responsepage.aspx?id=ZVH5axNBiEGbe8tsDBmKW-cPAmuMx6dNvjiN17RIMfRUMkRPR0xUMldPOEcwQUNFN1lKUEZLNk9XMy4u");
-            startActivity(n);
-
-        }
-        if (v.getId() == R.id.fb) {
-            Intent n = new Intent(this, gpaa.class);
-            n.putExtra("url", "https://web.facebook.com/FacultyofScienceASU?_rdc=1&_rdr");
-            startActivity(n);
-
-        }
-        if (v.getId() == R.id.gpa) {
-            Intent n = new Intent(this, gpaa.class);
-            n.putExtra("url", "https://gpa-calc.000webhostapp.com/");
-            startActivity(n);
-
-        }
+//        if (v.getId() == R.id.eve) {
+//            Intent n = new Intent(this, event.class);
+//            n.putExtra("url", "https://science.asu.edu.eg/ar/events");
+//            startActivity(n);
+//
+//        }
+//        if (v.getId() == R.id.adv) {
+//            Intent n = new Intent(this, advertisment.class);
+//            n.putExtra("url", "https://science.asu.edu.eg/ar/announcements");
+//            startActivity(n);
+//
+//        }
+//        if (v.getId() == R.id.privatee) {
+//            Intent n = new Intent(this, privteads.class);
+//            n.putExtra("url", "https://science.asu.edu.eg/ar/announcements");
+//            startActivity(n);
+//
+//        }
+//        if (v.getId() == R.id.problems) {
+//            Intent n = new Intent(this, problem.class);
+//            n.putExtra("url",
+//                    "https://forms.office.com/pages/responsepage.aspx?id=ZVH5axNBiEGbe8tsDBmKW-cPAmuMx6dNvjiN17RIMfRUMkRPR0xUMldPOEcwQUNFN1lKUEZLNk9XMy4u");
+//            startActivity(n);
+//
+//        }
+//        if (v.getId() == R.id.fb) {
+//            Intent n = new Intent(this, gpaa.class);
+//            n.putExtra("url", "https://web.facebook.com/FacultyofScienceASU?_rdc=1&_rdr");
+//            startActivity(n);
+//
+//        }
+//        if (v.getId() == R.id.gpa) {
+//            Intent n = new Intent(this, gpaa.class);
+//            n.putExtra("url", "https://gpa-calc.000webhostapp.com/");
+//            startActivity(n);
+//
+//        }
 
     }
 
@@ -94,13 +101,17 @@ public class menu extends AppCompatActivity {
                 @Override
                 public void run(){
 
-                    Log.i("Check", "Check cond");
                     if (!lastEvDate.equals(getLastDate())) {
                         // Turn On Notification Alert
                         lastEvDate = getLastDate();
 
-                        Log.i("Done", "Cond is ture");
-                        newsAlert.setText("Alert");
+//                        NotificationCompat.Builder builder = new NotificationCompat.Builder(menu.this, "event notification");
+//                        builder.setContentTitle("New Event");
+//                        builder.setContentText("Event description");
+//                        builder.setAutoCancel(true);
+//
+//                        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(menu.this);
+//                        managerCompat.notify(1, builder.build());
                     }
                 }
             },0,500);
@@ -122,6 +133,16 @@ public class menu extends AppCompatActivity {
         } catch (IOException e){
             return e.getMessage();
         }
+    }
+
+    public void triggerNotification () {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(menu.this, "My Notification");
+        builder.setContentTitle("New Event");
+        builder.setContentText("Event description");
+        builder.setAutoCancel(true);
+
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(menu.this);
+        managerCompat.notify(1, builder.build());
     }
 }
 /**
