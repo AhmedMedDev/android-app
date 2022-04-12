@@ -18,7 +18,7 @@
         android:onClick="click" />
 
     <ImageView
-        android:id="@+id/event"
+        android:id="@+id/eve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -32,12 +32,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="125dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="270dp"
         android:onClick="click"
         app:srcCompat="@drawable/adv" />
 
     <ImageView
-        android:id="@+id/sb"
+        android:id="@+id/privatee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/sb" />
 
     <ImageView
-        android:id="@+id/gc"
+        android:id="@+id/gpa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -55,7 +55,7 @@
         app:srcCompat="@drawable/gc" />
 
     <ImageView
-        android:id="@+id/fa"
+        android:id="@+id/fb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -64,7 +64,7 @@
         app:srcCompat="@drawable/fa" />
 
     <ImageView
-        android:id="@+id/com"
+        android:id="@+id/problems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
