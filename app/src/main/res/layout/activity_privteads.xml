@@ -8,8 +8,7 @@
 
     <WebView
         android:id="@+id/webp"
-        android:layout_width="421dp"
-        android:layout_height="806dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
