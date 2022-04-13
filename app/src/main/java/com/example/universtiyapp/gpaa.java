@@ -3,6 +3,7 @@ package com.example.universtiyapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -23,5 +24,8 @@ public class gpaa extends AppCompatActivity {
         ws.setAppCacheEnabled(true);
         Intent w=getIntent();
         webadd.loadUrl(w.getExtras().getString("url"));
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES. LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.medB));
+        }
     }
 }
