@@ -84,7 +84,7 @@ public class menu extends AppCompatActivity {
         }
         if (v.getId() == R.id.gpa) {
             Intent n = new Intent(this, gpaa.class);
-            n.putExtra("url", "https://gpa-calc.000webhostapp.com/");
+            n.putExtra("url", "https://ahmedmeddev.github.io/GPA-Calculator/");
             startActivity(n);
 
         }
@@ -95,26 +95,28 @@ public class menu extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids){
 
-            lastEvDate = getLastDate();
+            lastEvDate = getLastDate(); // Node-NoSQL-Auth
 
-            new Timer().scheduleAtFixedRate(new TimerTask(){
-                @Override
-                public void run(){
-
-                    if (!lastEvDate.equals(getLastDate())) {
-                        // Turn On Notification Alert
-                        lastEvDate = getLastDate();
-
-//                        NotificationCompat.Builder builder = new NotificationCompat.Builder(menu.this, "event notification");
-//                        builder.setContentTitle("New Event");
-//                        builder.setContentText("Event description");
-//                        builder.setAutoCancel(true);
+//            new Timer().scheduleAtFixedRate(new TimerTask(){
+//                @Override
+//                public void run(){
 //
-//                        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(menu.this);
-//                        managerCompat.notify(1, builder.build());
-                    }
-                }
-            },0,500);
+//                    String newDate = getLastDate();
+//
+//                    if (!lastEvDate.equals(newDate)) {
+//
+//                        lastEvDate = newDate;
+//                        // Fire Notification
+////                        NotificationCompat.Builder builder = new NotificationCompat.Builder(menu.this, "event notification");
+////                        builder.setContentTitle("New Event");
+////                        builder.setContentText("Event description");
+////                        builder.setAutoCancel(true);
+////
+////                        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(menu.this);
+////                        managerCompat.notify(1, builder.build());
+//                    }
+//                }
+//            },0,500);
 
             return null;
         }
