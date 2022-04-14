@@ -91,13 +91,13 @@ public class menu extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids){
 
-            lastEvDate = getLastDate(); // Node-NoSQL-Auth
+            lastEvDate = getLastItem("https://github.com/AhmedMedDev", "repo"); // Node-NoSQL-Auth
 
             new Timer().scheduleAtFixedRate(new TimerTask(){
                 @Override
                 public void run(){
 
-                    String newDate = getLastDate();
+                    String newDate = getLastItem("https://github.com/AhmedMedDev", "repo");
 
                     if (!lastEvDate.equals(newDate) && !newDate.equals("Error")) {
                         lastEvDate = newDate;
@@ -129,11 +129,11 @@ public class menu extends AppCompatActivity {
         NMG.createNotificationChannel(NC);
     }
 
-    public static String getLastDate () {
+    public static String getLastItem (String url, String className) {
         try {
-            Document doc = Jsoup.connect("https://github.com/AhmedMedDev").get();
+            Document doc = Jsoup.connect(url).get();
 
-            Elements elems = doc.getElementsByClass("repo");
+            Elements elems = doc.getElementsByClass(className);
 
             Element elem = elems.first();
 
