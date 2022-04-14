@@ -25,11 +25,11 @@ import java.util.TimerTask;
 
 public class menu extends AppCompatActivity {
 
-    String lastEvDate;
-    TextView newsAlert ;
+    String currentEvDate;
+    String currentNew;
+    String currentAnno;
     String channelId="chId";
     int notificationID = 1;
-    String Not;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,21 +91,42 @@ public class menu extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids){
 
-            lastEvDate = getLastItem("https://github.com/AhmedMedDev", "repo"); // Node-NoSQL-Auth
+            currentEvDate = getLastItem("https://science.asu.edu.eg/ar/events", "event-title");
+            currentNew = getLastItem("https://science.asu.edu.eg/ar/news", "line-clamp-3");
+            currentAnno = getLastItem("https://science.asu.edu.eg/ar/announcements", "line-clamp-3");
 
             new Timer().scheduleAtFixedRate(new TimerTask(){
                 @Override
                 public void run(){
 
-                    String newDate = getLastItem("https://github.com/AhmedMedDev", "repo");
+                    // Event Section
+                    String lastItem = getLastItem("https://science.asu.edu.eg/ar/events", "event-title");
 
-                    if (!lastEvDate.equals(newDate) && !newDate.equals("Error")) {
-                        lastEvDate = newDate;
+                    if (!currentEvDate.equals(lastItem) && !lastItem.equals("Error")) {
+                        currentEvDate = lastItem;
                         // Fire Notification
-                        triggerNotification("New Event", "New event with date : " + newDate);
+                        triggerNotification("New Event Notification", "New event with date : " + lastItem);
+                    }
+
+                    // News Section
+                    lastItem = getLastItem("https://science.asu.edu.eg/ar/news", "line-clamp-3");
+
+                    if (!currentNew.equals(lastItem) && !lastItem.equals("Error")) {
+                        currentNew = lastItem;
+                        // Fire Notification
+                        triggerNotification("New News Notification", "New News : " + lastItem);
+                    }
+
+                    // announcements Section
+                    lastItem = getLastItem("https://science.asu.edu.eg/ar/announcements", "line-clamp-3");
+
+                    if (!currentAnno.equals(lastItem) && !lastItem.equals("Error")) {
+                        currentAnno = lastItem;
+                        // Fire Notification
+                        triggerNotification("New Announcement Notification", "New Announcement : " + lastItem);
                     }
                 }
-            },0,1000);
+            },0,10000);
 
             return null;
         }
