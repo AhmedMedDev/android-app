@@ -27,6 +27,9 @@ public class menu extends AppCompatActivity {
 
     String lastEvDate;
     TextView newsAlert ;
+    String channelId="chId";
+    int notificationID = 1;
+    String Not;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +38,6 @@ public class menu extends AppCompatActivity {
 
         menu.checkWebPage checkWebPage = new menu.checkWebPage();
         checkWebPage.execute();
-
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("event notification", "event channel", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
     }
 
     public void click(View v) {
@@ -97,29 +93,40 @@ public class menu extends AppCompatActivity {
 
             lastEvDate = getLastDate(); // Node-NoSQL-Auth
 
-//            new Timer().scheduleAtFixedRate(new TimerTask(){
-//                @Override
-//                public void run(){
-//
-//                    String newDate = getLastDate();
-//
-//                    if (!lastEvDate.equals(newDate)) {
-//
-//                        lastEvDate = newDate;
-//                        // Fire Notification
-////                        NotificationCompat.Builder builder = new NotificationCompat.Builder(menu.this, "event notification");
-////                        builder.setContentTitle("New Event");
-////                        builder.setContentText("Event description");
-////                        builder.setAutoCancel(true);
-////
-////                        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(menu.this);
-////                        managerCompat.notify(1, builder.build());
-//                    }
-//                }
-//            },0,500);
+            new Timer().scheduleAtFixedRate(new TimerTask(){
+                @Override
+                public void run(){
+
+                    String newDate = getLastDate();
+
+                    if (!lastEvDate.equals(newDate) && !newDate.equals("Error")) {
+                        lastEvDate = newDate;
+                        // Fire Notification
+                        triggerNotification("New Event", "New event with date : " + newDate);
+                    }
+                }
+            },0,1000);
 
             return null;
         }
+    }
+
+    void triggerNotification(String title, String content){
+        creatChannel();
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,channelId);
+        builder.setContentTitle(title)
+                .setContentText(content)
+                .setSmallIcon(R.drawable.ic_launcher_background);
+        NotificationManagerCompat NMC = NotificationManagerCompat.from(this);
+        ++notificationID;
+        NMC.notify(notificationID,builder.build());
+    }
+
+    void creatChannel (){
+        NotificationChannel NC = new NotificationChannel(channelId,"My Notification", NotificationManager.IMPORTANCE_DEFAULT);
+        NC.setDescription("Get Notification");
+        NotificationManager NMG = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        NMG.createNotificationChannel(NC);
     }
 
     public static String getLastDate () {
@@ -133,18 +140,8 @@ public class menu extends AppCompatActivity {
             return elem.text();
 
         } catch (IOException e){
-            return e.getMessage();
+            return "Error";
         }
-    }
-
-    public void triggerNotification () {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(menu.this, "My Notification");
-        builder.setContentTitle("New Event");
-        builder.setContentText("Event description");
-        builder.setAutoCancel(true);
-
-        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(menu.this);
-        managerCompat.notify(1, builder.build());
     }
 }
 /**
